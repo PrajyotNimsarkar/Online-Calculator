@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Horizontally center content */
+            align-items: center; /* Vertically center content */
+            height: 100vh; /* Ensure full viewport height */
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            height: 450px;
+            width: 550px;
+        }
+        .calculator-heading {
+            background-color: #333; /* Change the background color here */
+            color: #fff;
+            padding: 20px;
+            font-size: 35px;
+            margin-top: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .input-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 18px;
+            color: #333;
+        }
+        input[type="number"], select {
+            width: 70%; /* Adjust width as needed */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-label {
+            width: 30%; /* Adjust width as needed */
+            text-align: right;
+            padding-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: #696969;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .result {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1 class="calculator-heading">Calculator</h1>
+        <form method="POST">
+            <div class="input-row">
+                <div class="input-label">
+                    <label for="num1">Enter 1st no.:</label>
+                </div>
+                <input type="number" name="num1" id="num1" required>
+            </div>
+            
+            <div class="input-row">
+                <div class="input-label">
+                    <label for="num2">Enter 2nd no.:</label>
+                </div>
+                <input type="number" name="num2" id="num2" required>
+            </div>
+            
+            <div class="input-row">
+                <div class="input-label">
+                    <label for="operation">Select operation:</label>
+                </div>
+                <select name="operation" id="operation" required>
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="divide">Divide</option>
+                </select>
+            </div>
+            
+            <input type="submit" value="Calculate">
+        </form>
+        
+        <div class="result">
+            {% if result is defined %}
+                Result: {{ result }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
